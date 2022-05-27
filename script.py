@@ -9,11 +9,11 @@ bot=telebot.TeleBot(token,parse_mode=None)
 def send_welcome(message):
 	bot.reply_to(message, """
 Bienvenido!
-Desea obtener datos climaticos de su país?
-Ingrese el comando /pais, y a continuación
+Desea obtener datos climaticos de su ciudad?
+Ingrese el comando /clima, y a continuación
 el nombre de su país.
 A continuación le dejamos un ejemplo.
-/clima argentina
+/clima buenos aires
     """)
 
 
@@ -21,10 +21,11 @@ A continuación le dejamos un ejemplo.
 def clima(mensaje):
     chat_id = mensaje.chat.id
     mensaje = mensaje.text.split()[1::]
-    pais=" ".join(mensaje)
-    #respuesta="La temperatura de Argentina es: " + str(round(y["temp"]-273.15))
-    bot.send_message(chat_id, getClima(pais))
-
+    ciudad=" ".join(mensaje)
+    try:
+        bot.send_message(chat_id, getClima(ciudad))
+    except:
+        bot.send_message(chat_id, "La ciudad indicada no existe, vuelva a indicar un lugar existente. 🙏")
 
 
 @bot.message_handler()
@@ -33,12 +34,12 @@ def echo_all(message):
     userMsg = message.text.lower()
 
     if("hola" in userMsg or "hi" in userMsg):
-        bot.send_message(chatId, "Hola, como estas?")
+        bot.send_message(chatId, "Hola, como estas?👋")
     elif("chau" in userMsg):
-        bot.send_message(chatId, "Chau, hasta luego!")
+        bot.send_message(chatId, "Chau, hasta luego!👋")
     elif("gracias" in userMsg):
-        bot.send_message(chatId, "De nada")
+        bot.send_message(chatId, "De nada😉")
     else:
-        bot.send_message(chatId, "No entiendo. Si necesitas ayuda envia el comando /help")
+        bot.send_message(chatId, "No entiendo🙁. Si necesitas ayuda envia el comando /help")
 
 bot.infinity_polling()

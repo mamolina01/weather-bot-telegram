@@ -2,10 +2,10 @@ import requests,json
 from variables import api_key
 
 
-def getClima(pais):
+def getClima(ciudad):
     #Direccion web desde donde solicitaremos la informacion
     base_url="http://api.openweathermap.org/data/2.5/weather?"
-    complete_url=base_url+"appid="+api_key+"&q="+str(pais)
+    complete_url=base_url+"appid="+api_key+"&q="+str(ciudad)
 
     #Ejecutamos la consulta
     response=requests.get(complete_url)
@@ -32,9 +32,9 @@ def getClima(pais):
 
 
         mensaje=f"""
-La temperatura de {pais} es: {str(temperatura)}° 🌡️
-La presion atmosferica de {pais} es: {str(presionatmosferica)} 🌎
-La humedad de {pais} es: {str(humedad)}%💧
-El clima de {pais} es: {clima} 🌞
+La temperatura de {ciudad} es: {str(temperatura)}° 🌡️
+La presion atmosferica de {ciudad} es: {str(presionatmosferica)} 🌎
+La humedad de {ciudad} es: {str(humedad)}%💧
+El clima de {ciudad} es: {clima} 🌞
         """
         return mensaje
