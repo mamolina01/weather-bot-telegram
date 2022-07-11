@@ -10,14 +10,14 @@ def send_welcome(message):
 	bot.reply_to(message, """
 Bienvenido!
 Desea obtener datos climaticos de su ciudad?
-Ingrese el comando /clima, y a continuación
+Ingrese el comando /climate, y a continuación
 el nombre de su país.
 A continuación le dejamos un ejemplo.
-/clima buenos aires
+/climate buenos aires
     """)
 
-
-@bot.message_handler(commands=['clima'])
+# /climate
+@bot.message_handler(commands=['climate'])
 def clima(mensaje):
     chat_id = mensaje.chat.id
     mensaje = mensaje.text.split()[1::]
