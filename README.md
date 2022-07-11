@@ -12,6 +12,10 @@ Do you want to know the weather of your city? Chat with Weather Bot. This Telegr
 
 ![image](https://user-images.githubusercontent.com/92599584/178268854-4c020cf1-f9aa-4a5e-a2b9-ce7ec87db290.png)
 
+# Others responses
+
+![image](https://user-images.githubusercontent.com/92599584/178270966-2a11fd6d-006e-4d9b-bac6-977436c7f822.png)
+
 
 # Authors
 [@mamolina01](https://github.com/mamolina01)
